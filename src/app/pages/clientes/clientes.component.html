@@ -1,0 +1,88 @@
+<div class="content">
+
+    <!--
+    <h2 class=" title">Listado de productos</h2>
+    <div class="row" id="cabeceraTabla">
+        <div class="col-1">Código</div>
+        <div class="col-2">Nombre</div>
+        <div class="col-2">Nit Proveedor</div>
+        <div class="col-2">Precio Compra</div>
+        <div class="col-2">Precio Venta</div>
+        <div class="col-1">Iva</div>
+        <div class="col-1">Editar</div>
+        <div class="col-1">Eliminar</div>
+    </div>
+    <br>
+    <div class="row" id="cuerpoTabla">
+        <div class="col-1">1</div>              <!-- Código Producto- ->
+        <div class="col-2">Naranjaaa</div>      <!-- Nombre Producto- ->
+        <div class="col-2">111110</div>         <!-- Nit Proveedor- ->
+        <div class="col-2">7800</div>           <!-- Precio Compra- ->
+        <div class="col-2">50000</div>          <!-- Precio Venta- ->
+        <div class="col-1">15</div>             <!-- Iva- ->
+        <div class="col-1">
+            <a href="#">
+                <i class="tim-icons icon-pencil"></i>
+            </a>
+        </div>
+        <div class="col-1">
+            <a href="#">
+                <i class="tim-icons icon-simple-delete"></i>
+            </a>
+        </div>
+    </div>
+
+-->
+
+
+
+    <div class=" col-md-12">
+        <div class=" card">
+            <div class=" card-header">
+                <h4 class=" card-title">Simple Table</h4>
+            </div>
+            <div class=" card-body">
+                <div class=" table-responsive">
+                    <table class=" table tablesorter" id="">
+                        <thead class=" text-primary">
+                            <tr>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Nit Proveedor</th>
+                                <th>Precio Compra</th>
+                                <th>Precio Venta</th>
+                                <th>Iva</th>
+                                <th class=" text-center">Editar</th>
+                                <th class=" text-center">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+
+                            <tr *ngFor="let producto of listaProductos">
+                                <td>{{producto.codigoProducto}}</td>
+                                <td>{{producto.nombreProducto}}</td>
+                                <td>{{producto.nitProveedor}}</td>
+                                <td>{{producto.precioCompra}}</td>
+                                <td>{{producto.precioVenta}}</td>
+                                <td>{{producto.ivaCompra}}</td>
+                                <td class=" text-center">
+                                    <a [routerLink]="" (click)="editarProducto(producto)">
+                                        <i class="tim-icons icon-pencil"></i>
+                                    </a>
+                                </td>
+                                <td class=" text-center">
+                                    <a [routerLink]="" (click)="eliminarProducto(producto)">
+                                        <i class="tim-icons icon-simple-delete"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
