@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpService } from "src/app/services/http.service";
-import { ProductoModel } from "src/app/models/producto.dto";
+import { holdReady } from "jquery";
+import { ClienteModel } from "src/app/models/cliente.dto";
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-clientes',
@@ -9,24 +10,40 @@ import { ProductoModel } from "src/app/models/producto.dto";
 })
 export class ClientesComponent implements OnInit {
 
-  listaProductos: ProductoModel[] = [];
+  listaClientes: ClienteModel[] = [];
+  lala="hola";
 
   constructor(private httpService: HttpService) { }
 
   ngOnInit() {
-    this.httpService.peticionGet("productos").subscribe((respuesta: any) => {
-      respuesta.forEach(producto => {
-        this.listaProductos.push(producto);
+
+    this.consultaClientes();
+
+  }
+
+  consultaClientes(){
+    this.listaClientes=[];
+    this.httpService.peticionGet("clientes").subscribe((respuesta: any) => {
+      respuesta.forEach(cliente => {
+        this.listaClientes.push(cliente);
       });
     });
   }
 
-  editarProducto(producto: ProductoModel){
-    console.log("Producto a editar:", producto);
+  editarCliente(cliente: ClienteModel){
+    this.lala=cliente.cedula;
+    console.log("Cliente a editar:", cliente);
+    alert("El cliente a editar es:"+ cliente.cedula);
   }
 
-  eliminarProducto(producto: ProductoModel){
-    console.log("Producto a eliminar:", producto);
+  eliminarCliente(cliente: ClienteModel){
+    this.httpService.peticionDelete("clientes", cliente.cedula).subscribe( (respuesta: any)=>{
+      console.log("Respuesta: ", respuesta);
+      //console.log("Se eliminó el cliente: ", cliente.cedula);
+
+    } );
+    console.log("Cliente a eliminar:", cliente);
+    alert("El cliente a eliminar es:"+ cliente.cedula);
   }
 
 }

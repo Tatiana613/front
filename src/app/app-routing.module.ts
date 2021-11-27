@@ -4,7 +4,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 const routes: Routes = [
   {
@@ -22,21 +21,12 @@ const routes: Routes = [
       }
     ]
   }, {
-    path: "",
-    component: AuthLayoutComponent,
-    children: [
-      {
-        path: "",
-        loadChildren: () => import ("./layouts/auth-layout/auth-layout.module").then(m => m.AuthLayoutModule)
-      }
-    ]
-  },
-  {
     path: "**",
-    redirectTo: "dashboard"
+    redirectTo: 'dashboard'
   }
-];
 
+];
+      
 @NgModule({
   imports: [
     CommonModule,

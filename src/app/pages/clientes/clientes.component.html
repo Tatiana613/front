@@ -1,88 +1,129 @@
-<div class="content">
-
-    <!--
-    <h2 class=" title">Listado de productos</h2>
-    <div class="row" id="cabeceraTabla">
-        <div class="col-1">Código</div>
-        <div class="col-2">Nombre</div>
-        <div class="col-2">Nit Proveedor</div>
-        <div class="col-2">Precio Compra</div>
-        <div class="col-2">Precio Venta</div>
-        <div class="col-1">Iva</div>
-        <div class="col-1">Editar</div>
-        <div class="col-1">Eliminar</div>
-    </div>
-    <br>
-    <div class="row" id="cuerpoTabla">
-        <div class="col-1">1</div>              <!-- Código Producto- ->
-        <div class="col-2">Naranjaaa</div>      <!-- Nombre Producto- ->
-        <div class="col-2">111110</div>         <!-- Nit Proveedor- ->
-        <div class="col-2">7800</div>           <!-- Precio Compra- ->
-        <div class="col-2">50000</div>          <!-- Precio Venta- ->
-        <div class="col-1">15</div>             <!-- Iva- ->
-        <div class="col-1">
-            <a href="#">
-                <i class="tim-icons icon-pencil"></i>
-            </a>
-        </div>
-        <div class="col-1">
-            <a href="#">
-                <i class="tim-icons icon-simple-delete"></i>
-            </a>
-        </div>
-    </div>
-
--->
-
-
-
-    <div class=" col-md-12">
+<div class=" content">
+    <div class=" row">
+      <div class=" col-md-10">
         <div class=" card">
-            <div class=" card-header">
-                <h4 class=" card-title">Simple Table</h4>
-            </div>
-            <div class=" card-body">
-                <div class=" table-responsive">
-                    <table class=" table tablesorter" id="">
-                        <thead class=" text-primary">
-                            <tr>
-                                <th>Código</th>
-                                <th>Nombre</th>
-                                <th>Nit Proveedor</th>
-                                <th>Precio Compra</th>
-                                <th>Precio Venta</th>
-                                <th>Iva</th>
-                                <th class=" text-center">Editar</th>
-                                <th class=" text-center">Eliminar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-
-                            <tr *ngFor="let producto of listaProductos">
-                                <td>{{producto.codigoProducto}}</td>
-                                <td>{{producto.nombreProducto}}</td>
-                                <td>{{producto.nitProveedor}}</td>
-                                <td>{{producto.precioCompra}}</td>
-                                <td>{{producto.precioVenta}}</td>
-                                <td>{{producto.ivaCompra}}</td>
-                                <td class=" text-center">
-                                    <a [routerLink]="" (click)="editarProducto(producto)">
-                                        <i class="tim-icons icon-pencil"></i>
-                                    </a>
-                                </td>
-                                <td class=" text-center">
-                                    <a [routerLink]="" (click)="eliminarProducto(producto)">
-                                        <i class="tim-icons icon-simple-delete"></i>
-                                    </a>
-                                </td>
-                            </tr>
-
-
-                        </tbody>
-                    </table>
+          <div class=" card-header"><h4 class=" title"> Insertar Clientes</h4></div>
+          <div class=" card-body">
+            <form>
+              <div class=" row">
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+                    <label> Cédula </label>
+                    <input
+                      [(ngModel)]="lala"
+                      class=" form-control"
+                      placeholder="Cédula"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class=" col-md-6 px-md-1">
+                  <div class=" form-group">
+                    <label> Teléfono </label>
+                    <input
+                      class=" form-control"
+                      placeholder="Número de Teléfono"
+                      type="number"
+                    />
+                  </div>
+                </div>
+                <div class=" col-md-6 pr-md-1">
+                  <div class=" form-group">
+                    <label> Nombre Completo </label>
+                    <input
+                      class=" form-control"
+                      placeholder="Nombre Cliente"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class=" col-md-6 pl-md-1">
+                  <div class=" form-group">
+                    <label> Correo Electrónico </label>
+                    <input
+                      class=" form-control"
+                      placeholder="alguien@email.com"
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div class=" col-md-12">
+                  <div class=" form-group">
+                    <label> Dirección </label>
+                    <input
+                      class=" form-control"
+                      placeholder="Dirección"
+                      type="text"
+                    />
+                  </div>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
+			<div class="container-btn-group">
+
+					<button type="button" class="btn btn-danger" >
+						<i class="fas fa-plus-circle"></i> Crear
+					</button>
+					<button type="button" class="btn btn-danger">
+						<i class="fas fa-trash"></i> Eliminar
+					</button>
+					<button type="button" class="btn btn-danger" >
+						<i class="fas fa-pen-alt"></i> Actualizar
+					</button>
+					<button type="button" class="btn btn-danger" (click)="consultaClientes()" >
+						<i class="fas fa-search"></i> Consultar
+					</button>
+				</div>
+
+        <div class=" col-md-12">
+          <div class=" card">
+              <div class=" card-header">
+                  <h4 class=" card-title">Lista Clientes</h4>
+              </div>
+              <div class=" card-body">
+                  <div class=" table-responsive">
+                      <table class=" table tablesorter" id="">
+                          <thead class=" text-primary">
+                              <tr>
+                                  <th class=" text-center">Cédula</th>
+                                  <th class=" text-center">Nombre Completo</th>
+                                  <th class=" text-center">Dirección</th>
+                                  <th class=" text-center">Teléfono</th>
+                                  <th class=" text-center">Correo Electrónico</th>
+                                  <th class=" text-center">Editar</th>
+                                  <th class=" text-center">Eliminar</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+
+
+                              <tr *ngFor="let cliente of listaClientes">
+                                  <td class=" text-center">{{cliente.cedula}}</td>
+                                  <td class=" text-center">{{cliente.nombreCompleto}}</td>
+                                  <td class=" text-center">{{cliente.direccion}}</td>
+                                  <td class=" text-center">{{cliente.telefono}}</td>
+                                  <td class=" text-center">{{cliente.correoElectronico}}</td>
+                                  <td class=" text-center">
+                                      <a [routerLink]="" (click)="editarCliente(cliente)">
+                                          <i class="tim-icons icon-pencil"></i>
+                                      </a>
+                                  </td>
+                                  <td class=" text-center">
+                                      <a [routerLink]="" (click)="eliminarCliente(cliente)">
+                                          <i class="tim-icons icon-simple-delete"></i>
+                                      </a>
+                                  </td>
+                              </tr>
+
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+
+
+
