@@ -10,7 +10,7 @@
                   <div class=" form-group">
                     <label> Cédula </label>
                     <input
-                      [(ngModel)]="lala"
+                      [(ngModel)]="list.cedula"
                       class=" form-control"
                       placeholder="Cédula"
                       type="text"
@@ -21,9 +21,10 @@
                   <div class=" form-group">
                     <label> Teléfono </label>
                     <input
+                    [(ngModel)]="list.telefono"
                       class=" form-control"
                       placeholder="Número de Teléfono"
-                      type="number"
+                      type="text"
                     />
                   </div>
                 </div>
@@ -31,6 +32,7 @@
                   <div class=" form-group">
                     <label> Nombre Completo </label>
                     <input
+                    [(ngModel)]="list.nombreCliente"
                       class=" form-control"
                       placeholder="Nombre Cliente"
                       type="text"
@@ -41,6 +43,7 @@
                   <div class=" form-group">
                     <label> Correo Electrónico </label>
                     <input
+                    [(ngModel)]="list.correoElec"
                       class=" form-control"
                       placeholder="alguien@email.com"
                       type="email"
@@ -51,6 +54,7 @@
                   <div class=" form-group">
                     <label> Dirección </label>
                     <input
+                    [(ngModel)]="list.direccion"
                       class=" form-control"
                       placeholder="Dirección"
                       type="text"
@@ -63,9 +67,6 @@
 
 					<button type="button" class="btn btn-danger" >
 						<i class="fas fa-plus-circle"></i> Crear
-					</button>
-					<button type="button" class="btn btn-danger">
-						<i class="fas fa-trash"></i> Eliminar
 					</button>
 					<button type="button" class="btn btn-danger" >
 						<i class="fas fa-pen-alt"></i> Actualizar

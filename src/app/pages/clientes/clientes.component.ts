@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { holdReady } from "jquery";
 import { ClienteModel } from "src/app/models/cliente.dto";
 import { HttpService } from 'src/app/services/http.service';
 
@@ -11,7 +10,13 @@ import { HttpService } from 'src/app/services/http.service';
 export class ClientesComponent implements OnInit {
 
   listaClientes: ClienteModel[] = [];
-  lala="hola";
+
+  list={
+  cedula:"",
+  nombreCliente:"",
+  telefono:"",
+  direccion:"",
+  correoElec:""}
 
   constructor(private httpService: HttpService) { }
 
@@ -31,7 +36,12 @@ export class ClientesComponent implements OnInit {
   }
 
   editarCliente(cliente: ClienteModel){
-    this.lala=cliente.cedula;
+    this.list.cedula=cliente.cedula;
+    this.list.nombreCliente=cliente.nombreCompleto;
+    this.list.telefono=cliente.telefono;
+    this.list.direccion=cliente.direccion;
+    this.list.correoElec=cliente.correoElectronico;
+
     console.log("Cliente a editar:", cliente);
     alert("El cliente a editar es:"+ cliente.cedula);
   }
